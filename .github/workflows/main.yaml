@@ -1,34 +1,42 @@
-name: ci
-on:
-  - push
-  - pull_request
-  
-# Environment
-env:
-  CI: true
-  PYTHON_VERSION: 3.12
+name: Deploy MkDocs
 
-# Jobs to run
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write   # <— dá permissão de escrita pro GITHUB_TOKEN
+
 jobs:
-     
-  # Build and deploy documentation site
   deploy:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-
-      # Checkout source form GitHub
       - uses: actions/checkout@v4
-
-      # Install Python runtime and dependencies
-      - uses: actions/setup-python@v4
         with:
-          python-version: ${{ env.PYTHON_VERSION }}
+          fetch-depth: 0          # mkdocs/ghp-import precisa do histórico
+          persist-credentials: true
 
-      # pip
-      - run: |
-          pip install -r requirements.txt
-          
-      # deploy
-      - run: |
-          mkdocs gh-deploy --force
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install deps
+        run: |
+          pip install -r requirements.txt || true
+          pip install mkdocs mkdocs-material \
+                     mkdocs-minify-plugin \
+                     mkdocs-git-revision-date-localized-plugin \
+                     mkdocs-git-authors-plugin \
+                     mkdocs-git-committers-plugin-2 \
+                     pymdown-extensions
+
+      - name: Configure git identity
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Deploy to gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # usado pelo ghp-import/mkdocs
+        run: mkdocs gh-deploy --force --clean --verbose
