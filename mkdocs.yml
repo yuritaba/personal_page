@@ -1,6 +1,7 @@
 site_name: Yuri Tabacof – Personal Page
 site_author: Yuri Tabacof
 site_url: https://yuritaba.github.io/personal_page
+use_directory_urls: true
 repo_url: https://github.com/yuritaba/personal_page
 repo_name: yuritaba/personal_page
 
