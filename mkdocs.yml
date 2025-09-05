@@ -4,6 +4,10 @@ site_url: https://yuritaba.github.io/personal_page
 repo_url: https://github.com/yuritaba/personal_page
 repo_name: yuritaba/personal_page
 
+include:
+  - "**/*.csv"     # <<< garante que os arquivos CSV entrem no build
+
+
 theme:
   name: material
   palette:
@@ -68,6 +72,7 @@ plugins:
 
   # 3) markdown-exec ligado
   - markdown-exec
+
 
 # 4) Mermaid JS no front-end
 extra_javascript:
