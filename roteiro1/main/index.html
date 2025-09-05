@@ -133,8 +133,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 # carregar dados
 import pandas as pd
-df = pd.read_csv("roteiro1/spaceship-titanic/train.csv")
-# contagem de valores ausentes
+url = "https://yuritaba.github.io/personal_page/roteiro1/spaceship-titanic/train.csv"
+df = pd.read_csv(url)
 na_counts = df.isna().sum().sort_values(ascending=False)
 na_counts.head(15)</pre></div> <div class=pyodide-editor-bar> <span class=pyodide-bar-item>Output</span><span id=exec-3--clear class="pyodide-bar-item pyodide-clickable"><span class=twemoji><svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span> </div> <pre><code id=exec-3--output class=pyodide-output></code></pre> </div> <script>
 document.addEventListener('DOMContentLoaded', (event) => {
