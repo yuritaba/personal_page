@@ -195,7 +195,7 @@ import pandas as pd
 
 # carregar dados
 import pandas as pd
-df = pd.read_csv("spaceship-titanic/train.csv")
+df = pd.read_csv("roteiro1/spaceship-titanic/train.csv")
 # contagem de valores ausentes
 na_counts = df.isna().sum().sort_values(ascending=False)
 na_counts.head(15)
