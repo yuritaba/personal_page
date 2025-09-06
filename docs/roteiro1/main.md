@@ -20,6 +20,8 @@ flowchart LR
 
 Geração e plotagem dos dados (o output do md exec não funciona com plt.show, então o gráfico da saída é mostrado abaixo do código como imagem):   
 
+obs: ajuda de IA
+
 ``` pyodide install="numpy, matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
@@ -77,7 +79,7 @@ Red is isolated in the top right, green is isolated in the bottom right (but clo
 
 - Based on your visual inspection, could a simple, linear boundary separate all classes?
 
-Definetly not.
+No, because it is impossible to separate class 0 and 1 using a line. This means that a linear model would not be able to classify these points correctly.
 
 - On your plot, sketch the decision boundaries that you think a trained neural network might learn to separate these classes.
 
@@ -164,7 +166,6 @@ The two classes are heavily overlapping in the 2D projection, therefore it would
 The data is not linearly separable in the 2D projection, as there is significant overlap between the two classes. This means that no straight line can be drawn to separate all points of one class from the other. Simple linear models, such as logistic regression or linear SVMs, rely on finding a linear decision boundary to classify data points. Therefore, a multi-layer neural network with non-linear activation functions is necessary to capture the complex relationships and patterns in the data, allowing for more flexible decision boundaries that can better separate the classes.
 
 
-
 ## Exercício 3
 
 ### Describing the Data:
@@ -190,6 +191,8 @@ Identificadores:
 
 Investigate the dataset for missing values. Which columns have them, and how many?
 
+Rodando o código abaixo (não irá funcionar aqui com o markdown exec, mas funciona no Python localmente):
+
 ``` pyodide install="pandas"
 import pandas as pd
 
@@ -201,15 +204,92 @@ na_counts = df.isna().sum().sort_values(ascending=False)
 na_counts.head(15)
 ```
 
+Output:
+
+```
+CryoSleep       217
+ShoppingMall    208
+VIP             203
+HomePlanet      201
+Name            200
+Cabin           199
+VRDeck          188
+FoodCourt       183
+Spa             183
+Destination     182
+RoomService     181
+Age             179
+PassengerId       0
+Transported       0
+dtype: int64
+```
+
+Logo, as colunas com valores ausentes são todas exceto PassengerId e Transported.
+
 Preprocess the Data: Your goal is to clean and transform the data so it can be fed into a neural network. The tanh activation function produces outputs in the range [-1, 1], so your input data should be scaled appropriately for stable training.
 
-Handle Missing Data: Devise and implement a strategy to handle the missing values in all the affected columns. Justify your choices.
+- Encode Categorical Features: Convert categorical columns like HomePlanet, CryoSleep, and Destination into a numerical format. One-hot encoding is a good choice.
 
-Encode Categorical Features: Convert categorical columns like HomePlanet, CryoSleep, and Destination into a numerical format. One-hot encoding is a good choice.
+- Normalize/Standardize Numerical Features: Scale the numerical columns (e.g., Age, RoomService, etc.). Since the tanh activation function is centered at zero and outputs values in [-1, 1], Standardization (to mean 0, std 1) or Normalization to a [-1, 1] range are excellent choices. Implement one and explain why it is a good practice for training neural networks with this activation function.
 
-Normalize/Standardize Numerical Features: Scale the numerical columns (e.g., Age, RoomService, etc.). Since the tanh activation function is centered at zero and outputs values in [-1, 1], Standardization (to mean 0, std 1) or Normalization to a [-1, 1] range are excellent choices. Implement one and explain why it is a good practice for training neural networks with this activation function.
+Primeiramente fazemos um one-hot encoding das colunas categóricas, depois lidamos com os valores ausentes (imputação), e também normalizamos as colunas numéricas para o intervalo [-1, 1].
+
+(Novamente, o código abaixo não irá funcionar aqui com o markdown exec, mas funciona no Python localmente):
+
+obs: ajuda de IA
+
+``` pyodide install="pandas, numpy, matplotlib"
+
+# separar target
+y = df["Transported"].astype(int)
+X = df.drop(columns=["Transported","PassengerId","Name"])
+
+# separar colunas categóricas e numéricas
+num_cols = ["Age","RoomService","FoodCourt","ShoppingMall","Spa","VRDeck"]
+cat_cols = ["HomePlanet","CryoSleep","Cabin","Destination","VIP"]
+
+# one-hot encoding manual
+X_cat = []
+for col in cat_cols:
+    uniques = sorted(X[col].dropna().unique())
+    mapping = {val:i for i,val in enumerate(uniques)}
+    arr = np.zeros((len(X), len(uniques)))
+    for i, val in enumerate(X[col]):
+        if pd.isna(val):
+            continue
+        arr[i, mapping[val]] = 1
+    X_cat.append(arr)
+X_cat = np.concatenate(X_cat, axis=1) if X_cat else np.empty((len(X),0))
+
+# imputar valores numéricos (mediana)
+for col in num_cols:
+    median = X[col].median()
+    X[col] = X[col].fillna(median)
+
+# normalizar numéricas para [-1,1]
+X_num = X[num_cols].values.astype(float)
+mins = X_num.min(axis=0)
+maxs = X_num.max(axis=0)
+X_num_scaled = 2 * (X_num - mins) / (maxs - mins) - 1
+
+# juntar numéricas e categóricas
+X_proc = np.concatenate([X_num_scaled, X_cat], axis=1)
+
+df.head()
+```
+
+- Numéricas → preenchidas com a mediana de cada coluna.
+
+A mediana é robusta contra outliers, evitando distorções no escalonamento para [-1,1].
+
+- Categóricas → no one-hot, valores nulos não viraram nenhuma categoria ativa (linha de zeros).
+
+Isso equivale a tratar o missing como uma “categoria ausente” sem inventar valores, mantendo consistência no vetor de entrada.
 
 Visualize the Results:
 
 Create histograms for one or two numerical features (like FoodCourt or Age) before and after scaling to show the effect of your transformation.
 
+![Histogramas antes e depois da normalização](./ex3.png)
+
+Como esperado, a "proporção" continua a mesma, mas agora os valores estão entre -1 e 1, adequados para a tanh.
