@@ -1,0 +1,809 @@
+<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="Yuri Tabacof"><link href=https://yuritaba.github.io/personal_page/projeto%201/main/ rel=canonical><link rel=icon href=../../assets/images/favicon.png><meta name=generator content="mkdocs-1.6.1, mkdocs-material-9.6.21"><title>Projeto 1 - Classification - Yuri Tabacof – Personal Page</title><link rel=stylesheet href=../../assets/stylesheets/main.2a3383ac.min.css><link rel=stylesheet href=../../assets/stylesheets/palette.06af60db.min.css><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback"><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><link rel=stylesheet href=../../assets/_markdown_exec_pyodide.css><link rel=stylesheet href=../../assets/_markdown_exec_ansi.css><script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script></head> <body dir=ltr data-md-color-scheme=default data-md-color-primary=grey data-md-color-accent=indigo> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#projeto-1-classification class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class="md-header md-header--shadow" data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=../.. title="Yuri Tabacof – Personal Page" class="md-header__button md-logo" aria-label="Yuri Tabacof – Personal Page" data-md-component=logo> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Yuri Tabacof – Personal Page </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Projeto 1 - Classification </span> </div> </div> </div> <form class=md-header__option data-md-component=palette> <input class=md-option data-md-color-media data-md-color-scheme=default data-md-color-primary=grey data-md-color-accent=indigo aria-label="Switch to dark mode" type=radio name=__palette id=__palette_0> <label class="md-header__button md-icon" title="Switch to dark mode" for=__palette_1 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg> </label> <input class=md-option data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme=slate data-md-color-primary=grey data-md-color-accent=indigo aria-label="Switch to light mode" type=radio name=__palette id=__palette_1> <label class="md-header__button md-icon" title="Switch to light mode" for=__palette_0 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg> </label> </form> <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg> </label> <nav class=md-search__options aria-label=Search> <button type=reset class="md-search__icon md-icon" title=Clear aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg> </button> </nav> </form> <div class=md-search__output> <div class=md-search__scrollwrap tabindex=0 data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list role=presentation></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/yuritaba/personal_page title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg> </div> <div class=md-source__repository> yuritaba/personal_page </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=../.. title="Yuri Tabacof – Personal Page" class="md-nav__button md-logo" aria-label="Yuri Tabacof – Personal Page" data-md-component=logo> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg> </a> Yuri Tabacof – Personal Page </label> <div class=md-nav__source> <a href=https://github.com/yuritaba/personal_page title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg> </div> <div class=md-source__repository> yuritaba/personal_page </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../.. class=md-nav__link> <span class=md-ellipsis> Home </span> </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type=checkbox id=__nav_2> <label class=md-nav__link for=__nav_2 id=__nav_2_label tabindex=0> <span class=md-ellipsis> Exercises </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_2_label aria-expanded=false> <label class=md-nav__title for=__nav_2> <span class="md-nav__icon md-icon"></span> Exercises </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../roteiro1/main/ class=md-nav__link> <span class=md-ellipsis> 1. Data </span> </a> </li> <li class=md-nav__item> <a href=../../roteiro2/main/ class=md-nav__link> <span class=md-ellipsis> 2. Perceptron </span> </a> </li> <li class=md-nav__item> <a href=../../roteiro3/main/ class=md-nav__link> <span class=md-ellipsis> 3. MLP </span> </a> </li> <li class=md-nav__item> <a href=../../roteiro4/main/ class=md-nav__link> <span class=md-ellipsis> 4. Metrics </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../../projeto1/main.md class=md-nav__link> <span class=md-ellipsis> Projeto </span> </a> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#1-dataset-selection class=md-nav__link> <span class=md-ellipsis> 1. Dataset Selection </span> </a> </li> <li class=md-nav__item> <a href=#2-dataset-explanation class=md-nav__link> <span class=md-ellipsis> 2. Dataset Explanation </span> </a> <nav class=md-nav aria-label="2. Dataset Explanation"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#contexto-e-descricao class=md-nav__link> <span class=md-ellipsis> Contexto e Descrição </span> </a> </li> <li class=md-nav__item> <a href=#variaveis class=md-nav__link> <span class=md-ellipsis> Variáveis </span> </a> </li> <li class=md-nav__item> <a href=#tipos-de-dados class=md-nav__link> <span class=md-ellipsis> Tipos de dados </span> </a> </li> <li class=md-nav__item> <a href=#principais-desafios class=md-nav__link> <span class=md-ellipsis> Principais Desafios </span> </a> </li> <li class=md-nav__item> <a href=#estatisticas-e-visualizacoes-planejadas class=md-nav__link> <span class=md-ellipsis> Estatísticas e Visualizações (planejadas) </span> </a> </li> <li class=md-nav__item> <a href=#consideracoes-eticas class=md-nav__link> <span class=md-ellipsis> Considerações Éticas </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#3-data-cleaning-and-normalization class=md-nav__link> <span class=md-ellipsis> 3. Data Cleaning and Normalization </span> </a> <nav class=md-nav aria-label="3. Data Cleaning and Normalization"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#estrutura-e-natureza-dos-dados class=md-nav__link> <span class=md-ellipsis> Estrutura e Natureza dos Dados </span> </a> </li> <li class=md-nav__item> <a href=#limpeza-e-qualidade-dos-dados class=md-nav__link> <span class=md-ellipsis> Limpeza e Qualidade dos Dados </span> </a> </li> <li class=md-nav__item> <a href=#pre-processamento-e-transformacao-dos-dados class=md-nav__link> <span class=md-ellipsis> Pré-processamento e Transformação dos Dados </span> </a> </li> <li class=md-nav__item> <a href=#resumo-do-processo-de-preparacao class=md-nav__link> <span class=md-ellipsis> Resumo do Processo de Preparação </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#4-implementacao-do-mlp-numpy class=md-nav__link> <span class=md-ellipsis> 4. Implementação do MLP (NumPy) </span> </a> <nav class=md-nav aria-label="4. Implementação do MLP (NumPy)"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#implementacao class=md-nav__link> <span class=md-ellipsis> Implementação </span> </a> </li> <li class=md-nav__item> <a href=#arquitetura-e-treino class=md-nav__link> <span class=md-ellipsis> Arquitetura e treino </span> </a> </li> <li class=md-nav__item> <a href=#hiperparametros class=md-nav__link> <span class=md-ellipsis> Hiperparâmetros </span> </a> </li> <li class=md-nav__item> <a href=#resultados class=md-nav__link> <span class=md-ellipsis> Resultados </span> </a> </li> <li class=md-nav__item> <a href=#codigo-completo class=md-nav__link> <span class=md-ellipsis> Código Completo </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#5-curvas-de-erro-e-visualizacoes class=md-nav__link> <span class=md-ellipsis> 5. Curvas de Erro e Visualizações </span> </a> <nav class=md-nav aria-label="5. Curvas de Erro e Visualizações"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#codigo-para-gerar-a-curva-de-perda class=md-nav__link> <span class=md-ellipsis> Código para gerar a curva de perda: </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#6-metricas-de-avaliacao-e-matriz-de-confusao class=md-nav__link> <span class=md-ellipsis> 6. Métricas de Avaliação e Matriz de Confusão </span> </a> <nav class=md-nav aria-label="6. Métricas de Avaliação e Matriz de Confusão"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#codigo-para-gerar-a-matriz-de-confusao class=md-nav__link> <span class=md-ellipsis> Código para gerar a matriz de confusão: </span> </a> </li> <li class=md-nav__item> <a href=#interpretacao class=md-nav__link> <span class=md-ellipsis> Interpretação: </span> </a> </li> <li class=md-nav__item> <a href=#conclusao class=md-nav__link> <span class=md-ellipsis> Conclusão: </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#uso-de-ia class=md-nav__link> <span class=md-ellipsis> Uso de I.A. </span> </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <h1 id=projeto-1-classification>Projeto 1 - Classification</h1> <h2 id=1-dataset-selection>1. Dataset Selection</h2> <p><strong>Nome do dataset:</strong> Default of Credit Card Clients (Taiwan)<br> <strong>Fonte:</strong> UCI Machine Learning Repository<br> <strong>URL:</strong> https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients<br> <strong>Tamanho:</strong> 30.000 registros, 23 variáveis preditoras + 1 variável-alvo </p> <p><strong>Tarefa:</strong> Classificação binária — prever se um cliente entrará em <em>default</em> (inadimplência) no mês seguinte.</p> <p><strong>Justificativa da escolha:</strong> - O problema é <strong>realista e relevante</strong> no contexto financeiro (risco de crédito).<br> - Contém <strong>dados mistos</strong> (numéricos e categóricos), o que torna o pré-processamento e o aprendizado mais desafiadores e instrutivos.<br> - Possui <strong>volume adequado</strong> (&gt;1.000 amostras e &gt;5 atributos), atendendo aos requisitos do projeto.<br> - Apresenta <strong>classes desbalanceadas</strong>, o que permite discutir métricas alternativas à acurácia e estratégias de balanceamento.<br> - É uma base <strong>pública e amplamente utilizada em pesquisa aplicada</strong>, sem ser uma das clássicas proibidas (Titanic, Iris, Wine etc.).</p> <h2 id=2-dataset-explanation>2. Dataset Explanation</h2> <h3 id=contexto-e-descricao>Contexto e Descrição</h3> <p>O dataset contém informações de 30.000 clientes de cartão de crédito em Taiwan.<br> Cada registro representa um cliente, e a variável-alvo indica se ele <strong>deu default no mês seguinte</strong> (<code>default.payment.next.month</code> = 1) ou não (= 0).<br> Os atributos incluem dados <strong>demográficos</strong>, <strong>financeiros</strong> e <strong>históricos de pagamento</strong>.</p> <h3 id=variaveis>Variáveis</h3> <p><strong>Demográficas</strong> - <code>SEX</code>: Gênero (1 = masculino, 2 = feminino)<br> - <code>EDUCATION</code>: Grau de instrução (1 = pós-graduação, 2 = graduação, 3 = ensino médio, 4/0/5/6 = outros)<br> - <code>MARRIAGE</code>: Estado civil (1 = casado, 2 = solteiro, 3/0 = outros)<br> - <code>AGE</code>: Idade (anos)</p> <p><strong>Financeiras</strong> - <code>LIMIT_BAL</code>: Limite total de crédito (em NT$)</p> <p><strong>Histórico de pagamento (últimos 6 meses)</strong> - <code>PAY_0</code>, <code>PAY_2</code>, <code>PAY_3</code>, <code>PAY_4</code>, <code>PAY_5</code>, <code>PAY_6</code> — Status de pagamento (valores inteiros, onde −2/−1/0 indicam pagos em dia, e 1, 2, ... indicam atraso em meses)</p> <p><strong>Faturas mensais</strong> - <code>BILL_AMT1</code> a <code>BILL_AMT6</code> — Valores das faturas nos seis meses anteriores</p> <p><strong>Pagamentos mensais</strong> - <code>PAY_AMT1</code> a <code>PAY_AMT6</code> — Valores pagos nos seis meses anteriores</p> <p><strong>Alvo</strong> - <code>default.payment.next.month</code>: 0 = não entrou em default; 1 = entrou em default</p> <h3 id=tipos-de-dados>Tipos de dados</h3> <ul> <li><strong>Numéricos contínuos:</strong> <code>LIMIT_BAL</code>, <code>AGE</code>, <code>BILL_AMT*</code>, <code>PAY_AMT*</code> </li> <li><strong>Numéricos discretos:</strong> <code>PAY_*</code> </li> <li><strong>Categóricos:</strong> <code>SEX</code>, <code>EDUCATION</code>, <code>MARRIAGE</code> </li> <li><strong>Binário (target):</strong> <code>default.payment.next.month</code></li> </ul> <h3 id=principais-desafios>Principais Desafios</h3> <ul> <li><strong>Desbalanceamento:</strong> apenas ~22% dos clientes estão em default. </li> <li><strong>Categorias inválidas:</strong> <code>EDUCATION</code> e <code>MARRIAGE</code> contêm códigos inconsistentes. </li> <li><strong>Outliers:</strong> valores muito altos em <code>BILL_AMT*</code> e <code>PAY_AMT*</code>. </li> <li><strong>Multicolinearidade:</strong> alta correlação entre séries temporais (meses consecutivos). </li> <li><strong>Escalas muito diferentes:</strong> necessidade de normalização antes do treino do MLP.</li> </ul> <h3 id=estatisticas-e-visualizacoes-planejadas>Estatísticas e Visualizações (planejadas)</h3> <ul> <li>Distribuição do alvo (<code>default.payment.next.month</code>) </li> <li>Histogramas de <code>LIMIT_BAL</code> e <code>AGE</code> </li> <li>Heatmap de correlação entre variáveis numéricas </li> <li>Tabela resumo de médias, desvios e amplitudes </li> </ul> <h3 id=consideracoes-eticas>Considerações Éticas</h3> <p>Alguns atributos (gênero, estado civil, escolaridade) podem introduzir <strong>viés algorítmico</strong>.<br> Discussões sobre <em>fairness</em> e mitigação de viés são pertinentes ao interpretar os resultados.</p> <h2 id=3-data-cleaning-and-normalization>3. Data Cleaning and Normalization</h2> <h3 id=estrutura-e-natureza-dos-dados>Estrutura e Natureza dos Dados</h3> <p>Os dados utilizados neste projeto representam informações de clientes de cartão de crédito, com atributos que descrevem aspectos <strong>demográficos, financeiros e comportamentais</strong>.<br> Cada linha do dataset corresponde a um cliente, e cada coluna representa uma <strong>feature</strong> (atributo), como limite de crédito, idade, estado civil ou histórico de pagamento.<br> Essa estrutura, em forma de <strong>matriz de atributos</strong>, é a base para a aplicação de técnicas de aprendizado supervisionado,<br> em que cada exemplo possui um conjunto de entradas (features) e uma saída (rótulo).</p> <p>As variáveis do conjunto de dados podem ser classificadas em dois tipos principais:</p> <ul> <li><strong>Numéricas:</strong> representam valores contínuos ou discretos, como <code>LIMIT_BAL</code> (limite de crédito) e <code>AGE</code> (idade); </li> <li><strong>Categóricas:</strong> representam valores qualitativos, como <code>SEX</code>, <code>EDUCATION</code> e <code>MARRIAGE</code>.</li> </ul> <p>Essa distinção é fundamental, pois <strong>cada tipo de dado requer um tratamento específico</strong> para que o modelo de aprendizado consiga interpretar corretamente as informações.</p> <hr> <h3 id=limpeza-e-qualidade-dos-dados>Limpeza e Qualidade dos Dados</h3> <p>A qualidade dos dados é essencial para o desempenho de qualquer modelo de aprendizado de máquina.<br> Durante a etapa de limpeza, foram verificados problemas comuns como <strong>valores ausentes, duplicatas e inconsistências</strong>.</p> <ul> <li><strong>Valores ausentes:</strong> não foram encontrados no conjunto de dados. </li> <li><strong>Duplicatas:</strong> nenhuma linha duplicada foi identificada. </li> <li><strong>Inconsistências:</strong> categorias incorretas, como <code>EDUCATION = 0, 5, 6</code> e <code>MARRIAGE = 0</code>, foram recategorizadas como “Outros”, garantindo consistência nos dados. </li> <li><strong>Valores inválidos:</strong> apenas uma amostra foi removida por conter um valor incorreto na variável alvo (<code>default_payment_next_month</code>).</li> </ul> <p>Após a limpeza, o dataset permaneceu com <strong>30.000 amostras válidas</strong>, todas completas e sem inconsistências estruturais.</p> <hr> <h3 id=pre-processamento-e-transformacao-dos-dados>Pré-processamento e Transformação dos Dados</h3> <p>Como o modelo de aprendizado requer <strong>entradas numéricas</strong>, as variáveis categóricas foram <strong>convertidas em formato numérico</strong> por meio da técnica de <strong>One-Hot Encoding</strong>,<br> criando uma coluna para cada categoria possível de <code>SEX</code>, <code>EDUCATION</code> e <code>MARRIAGE</code>.<br> Esse processo garante que o modelo interprete corretamente diferenças qualitativas entre categorias, sem atribuir ordens artificiais a elas.</p> <p>Em seguida, os dados numéricos foram <strong>normalizados</strong> para uma escala comum,<br> de forma que todas as variáveis contribuam igualmente durante o treinamento da rede neural.<br> Esse procedimento é essencial para evitar que atributos com valores mais altos dominem a função de custo do modelo.</p> <p>Por fim, o conjunto de dados foi dividido em três subconjuntos:<br> - <strong>Treino (60%)</strong> – usado para o aprendizado do modelo;<br> - <strong>Validação (20%)</strong> – usado para ajuste de parâmetros;<br> - <strong>Teste (20%)</strong> – usado para avaliar a capacidade de generalização.</p> <p>A divisão foi feita de forma <strong>estratificada</strong>, mantendo a proporção original das classes (<code>default = 1</code> e <code>non-default = 0</code>) em todos os conjuntos.</p> <hr> <h3 id=resumo-do-processo-de-preparacao>Resumo do Processo de Preparação</h3> <table> <thead> <tr> <th>Etapa</th> <th>Ação Realizada</th> </tr> </thead> <tbody> <tr> <td>Verificação de valores ausentes</td> <td>Nenhum valor ausente encontrado</td> </tr> <tr> <td>Remoção de duplicatas</td> <td>Nenhuma duplicata detectada</td> </tr> <tr> <td>Correção de categorias inválidas</td> <td>Reclassificação de valores fora do intervalo válido</td> </tr> <tr> <td>Exclusão de valores incorretos</td> <td>1 registro removido</td> </tr> <tr> <td>Codificação de variáveis categóricas</td> <td>One-Hot Encoding aplicado</td> </tr> <tr> <td>Normalização</td> <td>Escalonamento dos atributos numéricos</td> </tr> <tr> <td>Divisão do dataset</td> <td>60% treino, 20% validação, 20% teste (estratificado)</td> </tr> </tbody> </table> <p>Esses procedimentos asseguraram que o dataset estivesse <strong>limpo, consistente e devidamente estruturado</strong>,<br> seguindo as boas práticas de <strong>qualidade, balanceamento e padronização de dados</strong> recomendadas em Machine Learning.</p> <h2 id=4-implementacao-do-mlp-numpy>4. Implementação do MLP (NumPy)</h2> <h3 id=implementacao>Implementação</h3> <p>Implementamos um <strong>MLP do zero</strong>, usando apenas <strong>NumPy</strong> (produto matricial, ativações, softmax, cross‑entropy, backprop e atualização dos pesos). O objetivo é classificar <strong>inadimplência</strong> (<code>default_payment_next_month</code>) a partir dos dados já limpos/normalizados.</p> <h3 id=arquitetura-e-treino>Arquitetura e treino</h3> <p><div class=highlight><pre><span></span><code>Entrada (d_in) → ReLU(64) → ReLU(32) → Softmax(2)
+</code></pre></div> - <strong>Ativações:</strong> ReLU nas camadas escondidas; Softmax na saída.<br> - <strong>Loss:</strong> Cross-Entropy (com <strong>pesos de classe</strong> para desbalanceamento) + L2.<br> - <strong>Otimização:</strong> <strong>SGD mini-batch</strong> com <strong>momentum</strong>, <em>learning rate decay</em> e <strong>early stopping</strong>.<br> - <strong>Limiar de decisão:</strong> escolhido na validação para <strong>máximo F1</strong>.</p> <h3 id=hiperparametros>Hiperparâmetros</h3> <ul> <li>Camadas escondidas: <strong>(64, 32)</strong> </li> <li>Batch size: <strong>256</strong> </li> <li>Épocas máx.: <strong>60</strong> (com <em>early stopping</em>, paciência=8) </li> <li>Learning rate inicial: <strong>1e‑2</strong> (decai 0.9 a cada 5 épocas) </li> <li>L2 (weight decay): <strong>1e‑4</strong> </li> <li>Seed: <strong>42</strong> </li> <li>Threshold (val, melhor F1): <strong>0.47</strong></li> </ul> <h3 id=resultados>Resultados</h3> <table> <thead> <tr> <th>Conjunto</th> <th style="text-align: center;">Acc</th> <th style="text-align: center;">Precision</th> <th style="text-align: center;">Recall</th> <th style="text-align: center;">F1</th> <th style="text-align: center;">ROC‑AUC</th> </tr> </thead> <tbody> <tr> <td><strong>Treino</strong></td> <td style="text-align: center;">0.7533</td> <td style="text-align: center;">0.4603</td> <td style="text-align: center;">0.6660</td> <td style="text-align: center;">0.5443</td> <td style="text-align: center;">0.7979</td> </tr> <tr> <td><strong>Validação</strong></td> <td style="text-align: center;">0.7367</td> <td style="text-align: center;">0.4325</td> <td style="text-align: center;">0.6104</td> <td style="text-align: center;"><strong>0.5062</strong></td> <td style="text-align: center;">0.7567</td> </tr> <tr> <td><strong>Teste</strong></td> <td style="text-align: center;"><strong>0.7418</strong></td> <td style="text-align: center;"><strong>0.4425</strong></td> <td style="text-align: center;"><strong>0.6443</strong></td> <td style="text-align: center;"><strong>0.5247</strong></td> <td style="text-align: center;"><strong>0.7750</strong></td> </tr> </tbody> </table> <ul> <li><strong>Acc (Accuracy):</strong> Proporção total de acertos — ou seja, quantos exemplos o modelo classificou corretamente (positivos e negativos) entre todos os exemplos. Fórmula: (VP + VN) / Total</li> <li><strong>Precision:</strong> Proporção de exemplos classificados como positivos que realmente são positivos. Mede a confiabilidade das previsões positivas. Fórmula: VP / (VP + FP)</li> <li><strong>Recall (Sensibilidade):</strong> Proporção de exemplos positivos reais que o modelo conseguiu capturar. Mede a capacidade de detectar inadimplentes. Fórmula: VP / (VP + FN)</li> <li><strong>F1-score:</strong> Média harmônica entre Precision e Recall. Equilibra os dois em uma única métrica, especialmente útil com classes desbalanceadas. Fórmula: 2 · (Prec · Rec) / (Prec + Rec)</li> <li><strong>ROC‑AUC:</strong> Área sob a curva ROC (Receiver Operating Characteristic), que mede a capacidade do modelo de separar classes. Quanto mais próximo de 1, melhor a separação entre inadimplentes e não inadimplentes.</li> </ul> <p><strong>Observação.</strong> Em dados desbalanceados, otimizar <strong>F1/Recall</strong> (via threshold) pode reduzir a <strong>accuracy</strong> em relação ao baseline que sempre prevê a classe majoritária. Aqui priorizamos recuperar mais inadimplentes mantendo AUC e F1 sólidos.</p> <h3 id=codigo-completo>Código Completo</h3> <p> <script type=text/javascript src=https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js></script> <script type=text/javascript src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js></script> <script type=text/javascript src=https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js></script> <link title=light rel="alternate stylesheet" href=https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css disabled=disabled> <link title=dark rel="alternate stylesheet" href=https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css disabled=disabled> <div class=pyodide> <div class=pyodide-editor-bar> <span class=pyodide-bar-item>Editor (session: default)</span><span id=exec-1--run title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class=twemoji><svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span> </div> <div><pre id=exec-1--editor class=pyodide-editor>
+# projeto1.py
+# Data Cleaning & Normalization + MLP from scratch (NumPy)
+# ✔️ Rode com "Run Python File" (▶) no VS Code, sem passar argumentos.
+# ✔️ Passos:
+#     1) Auto-descobre o Excel (.xls/.xlsx), limpa e normaliza (One-Hot, split, z-score)
+#     2) Treina um MLP (NumPy) com ReLU + Softmax, CE ponderada, mini-batch SGD + Momentum, L2, early stopping
+#     3) Ajusta threshold pelo melhor F1 na validação e imprime métricas
+#
+# Requisitos:
+#   pip install numpy pandas scikit-learn xlrd
+#
+# Saídas (padrão: ./processed):
+#   - X_train.npy, y_train.npy, X_val.npy, y_val.npy, X_test.npy, y_test.npy
+#   - scaler_mu.npy, scaler_sd.npy, columns.json
+#   - class_dist_before.json, class_dist_splits.json
+#   - cleaned_full_sample.csv (amostra 5%)
+#   - training_curves.csv (perdas por época)
+#   - final_metrics.json (métricas + threshold escolhido)
+#
+# ------------------------------------------------------------------------------
+#                                IMPORTS
+# ------------------------------------------------------------------------------
+
+import json
+from pathlib import Path
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+
+# ------------------------------------------------------------------------------
+#                                CONFIG
+# ------------------------------------------------------------------------------
+
+# (A) Cleaning
+SEED = 42
+WINSOR_LO = 1.0
+WINSOR_HI = 99.0
+SAMPLE_CSV_FRAC = 0.05
+OUTDIR_NAME = "processed"
+
+POSSIBLE_DATAFILES = [
+    "default of credit card clients.xls",
+    "default_of_credit_card_clients.xls",
+    "default of credit card clients.xlsx",
+    "default_of_credit_card_clients.xlsx",
+    "UCI_Credit_Card.xls",
+    "UCI_Credit_Card.xlsx",
+]
+
+TARGET_CANDIDATES = [
+    "default_payment_next_month",
+    "default.payment.next.month",
+    "default payment next month",
+    "y",
+]
+ID_CANDIDATES = ["id", "unnamed:_0"]
+CAT_COLS_RAW = ["sex", "education", "marriage"]
+
+# (B) MLP Hyperparameters
+MLP_LAYERS = (64, 32)     # camadas escondidas
+MLP_L2 = 1e-4             # weight decay
+LR_INIT = 1e-2            # learning rate inicial
+BATCH_SIZE = 256
+EPOCHS = 60
+PATIENCE = 8              # early stopping (épocas sem melhora em val)
+LR_DECAY = 0.9            # multiplicador a cada LR_DECAY_EVERY épocas
+LR_DECAY_EVERY = 5
+MOMENTUM = 0.9            # SGD momentum
+
+# ------------------------------------------------------------------------------
+#                             HELPER FUNCTIONS
+# ------------------------------------------------------------------------------
+
+def print_header(title):
+    print("\n" + "=" * 80)
+    print(title)
+    print("=" * 80)
+
+
+def normalize_columns(cols):
+    out = []
+    for c in cols:
+        c2 = str(c).strip()
+        c2 = c2.replace("\n", " ").replace("\r", " ").replace("-", " ").replace("/", " ")
+        c2 = " ".join(c2.split())
+        c2 = c2.lower().replace(" ", "_")
+        out.append(c2)
+    return out
+
+
+def try_read_excel(path: Path) -> pd.DataFrame:
+    for kw in [
+        dict(header=0, engine="xlrd"),
+        dict(header=1, engine="xlrd"),
+        dict(header=0),
+        dict(header=1),
+    ]:
+        try:
+            return pd.read_excel(path, sheet_name=0, **kw)
+        except Exception:
+            continue
+    return pd.read_excel(path)
+
+
+def find_first_present(candidates, cols):
+    for c in candidates:
+        if c in cols:
+            return c
+    return None
+
+
+def auto_find_datafile(script_dir: Path) -> Path:
+    for name in POSSIBLE_DATAFILES:
+        p = script_dir / name
+        if p.exists():
+            return p
+    for p in sorted(script_dir.glob("*.xls")) + sorted(script_dir.glob("*.xlsx")):
+        return p
+    raise FileNotFoundError(
+        "❌ Nenhum arquivo .xls/.xlsx encontrado. Coloque o Excel na mesma pasta do .py."
+    )
+
+
+# ------------------------------------------------------------------------------
+#                       SECTION 3 — CLEANING & NORMALIZATION
+# ------------------------------------------------------------------------------
+
+def run_cleaning_and_save(script_dir: Path):
+    outdir = script_dir / OUTDIR_NAME
+    outdir.mkdir(parents=True, exist_ok=True)
+
+    # 1) Carregar .xls/.xlsx automaticamente
+    print_header("[1] Carregando planilha de dados (auto-descoberta)")
+    data_path = auto_find_datafile(script_dir)
+    print(f"Arquivo detectado: {data_path.name}")
+    df = try_read_excel(data_path)
+    print(f"Shape bruto lido: {df.shape}")
+
+    df.columns = normalize_columns(df.columns)
+    print("Colunas normalizadas (primeiras 15):", list(df.columns)[:15])
+
+    df = df.dropna(how="all")
+    print(f"Shape após remover linhas 100% vazias: {df.shape}")
+
+    # Detectar schema X1..X23 + Y e renomear
+    cols = set(df.columns)
+    x_schema_ok = {
+        "x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x11",
+        "x12","x13","x14","x15","x16","x17","x18","x19","x20","x21","x22","x23","y"
+    }.issubset(cols)
+
+    if x_schema_ok:
+        mapping = {
+            "unnamed:_0": "id",
+            "x1":  "limit_bal",
+            "x2":  "sex",
+            "x3":  "education",
+            "x4":  "marriage",
+            "x5":  "age",
+            "x6":  "pay_0",
+            "x7":  "pay_2",
+            "x8":  "pay_3",
+            "x9":  "pay_4",
+            "x10": "pay_5",
+            "x11": "pay_6",
+            "x12": "bill_amt1",
+            "x13": "bill_amt2",
+            "x14": "bill_amt3",
+            "x15": "bill_amt4",
+            "x16": "bill_amt5",
+            "x17": "bill_amt6",
+            "x18": "pay_amt1",
+            "x19": "pay_amt2",
+            "x20": "pay_amt3",
+            "x21": "pay_amt4",
+            "x22": "pay_amt5",
+            "x23": "pay_amt6",
+            "y":   "default_payment_next_month",
+        }
+        df = df.rename(columns={k: v for k, v in mapping.items() if k in df.columns})
+        if "id" not in df.columns:
+            if "unnamed:_0" in df.columns:
+                df = df.rename(columns={"unnamed:_0": "id"})
+            else:
+                df.insert(0, "id", np.arange(len(df)))
+        print("[PATCH] Detectado schema X1..X23 + Y. Colunas renomeadas para nomes oficiais.")
+        print("Colunas (amostra):", list(df.columns)[:15])
+
+    # detectar alvo e id
+    target_col = find_first_present(TARGET_CANDIDATES, df.columns)
+    if target_col is None:
+        raise KeyError(f"Coluna alvo não encontrada. Esperado uma entre: {TARGET_CANDIDATES}.")
+    id_col = find_first_present(ID_CANDIDATES, df.columns)
+    print(f"Alvo: {target_col} | ID: {id_col if id_col else '(não há — usarei índice)'}")
+
+    # coerção de tipos (alvo e categóricas)
+    df[target_col] = pd.to_numeric(df[target_col], errors="coerce")
+    n_nan_target = int(df[target_col].isna().sum())
+    if n_nan_target > 0:
+        print(f"[PATCH] Removendo {n_nan_target} linhas com alvo inválido.")
+        df = df.dropna(subset=[target_col])
+    df[target_col] = df[target_col].astype(int)
+    for c in ["sex", "education", "marriage"]:
+        if c in df.columns:
+            df[c] = pd.to_numeric(df[c], errors="coerce").fillna(0).astype(int)
+
+    # 2) Duplicados
+    print_header("[2] Remoção de duplicados")
+    n_before = len(df)
+    df = df.drop_duplicates()
+    print(f"Duplicados removidos: {n_before - len(df)} | shape atual: {df.shape}")
+
+    # 3) Missing antes
+    print_header("[3] Missing values (antes)")
+    miss_before = df.isna().sum()
+    print(miss_before[miss_before > 0] if miss_before.sum() > 0 else "Sem valores ausentes.")
+
+    # 4) Normalizar categorias inválidas
+    print_header("[4] Normalizando categorias inválidas (education, marriage)")
+    if "education" in df.columns:
+        df["education"] = df["education"].replace({0: 4, 5: 4, 6: 4})
+    if "marriage" in df.columns:
+        df["marriage"] = df["marriage"].replace({0: 3})
+
+    # 5) Categóricas vs. numéricas
+    print_header("[5] Identificando colunas categóricas e numéricas")
+    all_cols = df.columns.tolist()
+    cat_cols = [c for c in CAT_COLS_RAW if c in df.columns]
+    num_cols = [c for c in all_cols if c not in cat_cols + [target_col] + ([id_col] if id_col else [])]
+    print(f"Categóricas: {cat_cols}")
+    print(f"Numéricas (exemplos): {num_cols[:10]} ... (total {len(num_cols)})")
+
+    # 6) Distribuição do alvo
+    print_header("[6] Distribuição do alvo (antes do split)")
+    class_dist = df[target_col].value_counts().sort_index().to_dict()
+    print(f"Distribuição de classes: {class_dist}")
+    with open(outdir / "class_dist_before.json", "w") as f:
+        json.dump({int(k): int(v) for k, v in class_dist.items()}, f, indent=2)
+
+    # 7) One-Hot
+    print_header("[7] One-Hot Encoding")
+    X_cat = pd.get_dummies(df[cat_cols].astype("category"), drop_first=False) if cat_cols else pd.DataFrame(index=df.index)
+    X_num = df[num_cols].copy()
+
+    print("Percentis numéricos (ANTES do winsorize) [p1, p50, p99]:")
+    for c in num_cols:
+        p1, p50, p99 = np.percentile(X_num[c], [1, 50, 99])
+        print(f"  {c:>18s}: p1={p1:.2f}, p50={p50:.2f}, p99={p99:.2f}")
+
+    print_header(f"[8] Winsorize/clip numéricas (p={WINSOR_LO:.1f}–{WINSOR_HI:.1f})")
+    for c in num_cols:
+        lo, hi = np.percentile(X_num[c], [WINSOR_LO, WINSOR_HI])
+        X_num[c] = X_num[c].clip(lo, hi)
+    print("Percentis numéricos (DEPOIS do winsorize) [p1, p50, p99]:")
+    for c in num_cols:
+        p1, p50, p99 = np.percentile(X_num[c], [1, 50, 99])
+        print(f"  {c:>18s}: p1={p1:.2f}, p50={p50:.2f}, p99={p99:.2f}")
+
+    X = pd.concat([X_num, X_cat], axis=1)
+    y = df[target_col].to_numpy().astype(int)
+
+    print_header("[10] Missing values (depois do encoding/winsorize)")
+    miss_after = X.isna().sum()
+    if miss_after.sum() > 0:
+        print(miss_after[miss_after > 0].sort_values(ascending=False))
+        for c in X.columns:
+            if X[c].isna().any():
+                med = X[c].median() if X[c].dtype.kind in "if" else 0
+                X[c] = X[c].fillna(med)
+        print("Após imputação:", int(X.isna().sum().sum()), "missing restantes (esperado: 0).")
+    else:
+        print("Sem valores ausentes após transformações.")
+
+    # 11) Split 60/20/20
+    print_header("[11] Split estratificado 60/20/20 (train/val/test)")
+    X_np = X.to_numpy(dtype=np.float32)
+    X_train, X_tmp, y_train, y_tmp = train_test_split(
+        X_np, y, test_size=0.4, random_state=SEED, stratify=y
+    )
+    X_val, X_test, y_val, y_test = train_test_split(
+        X_tmp, y_tmp, test_size=0.5, random_state=SEED, stratify=y_tmp
+    )
+    dist_splits = {
+        "train": {int(k): int(v) for k, v in pd.Series(y_train).value_counts().sort_index().to_dict().items()},
+        "val":   {int(k): int(v) for k, v in pd.Series(y_val).value_counts().sort_index().to_dict().items()},
+        "test":  {int(k): int(v) for k, v in pd.Series(y_test).value_counts().sort_index().to_dict().items()},
+    }
+    print("Distribuição por split:", json.dumps(dist_splits, indent=2))
+    with open(outdir / "class_dist_splits.json", "w") as f:
+        json.dump(dist_splits, f, indent=2)
+
+    # 12) Z-score
+    print_header("[12] Z-score (fit no treino, aplicar em val/test)")
+    mu = X_train.mean(axis=0, keepdims=True)
+    sd = X_train.std(axis=0, keepdims=True) + 1e-8
+    X_train_z = (X_train - mu) / sd
+    X_val_z   = (X_val   - mu) / sd
+    X_test_z  = (X_test  - mu) / sd
+    print(f"Média média (train, pós z-score) ≈ {X_train_z.mean():.4f} | Desvio médio ≈ {X_train_z.std():.4f}")
+
+    # 13) Salvar artefatos
+    print_header("[13] Salvando artefatos e datasets")
+    np.save(outdir / "X_train.npy", X_train_z)
+    np.save(outdir / "y_train.npy", y_train)
+    np.save(outdir / "X_val.npy", X_val_z)
+    np.save(outdir / "y_val.npy", y_val)
+    np.save(outdir / "X_test.npy", X_test_z)
+    np.save(outdir / "y_test.npy", y_test)
+    np.save(outdir / "scaler_mu.npy", mu.astype(np.float32))
+    np.save(outdir / "scaler_sd.npy", sd.astype(np.float32))
+    columns = X.columns.tolist()
+    with open(outdir / "columns.json", "w") as f:
+        json.dump({"columns": columns}, f, indent=2)
+
+    if SAMPLE_CSV_FRAC > 0:
+        print(f"Salvando amostra limpa ({SAMPLE_CSV_FRAC*100:.1f}%)…")
+        X_all_z = np.vstack([X_train_z, X_val_z, X_test_z])
+        y_all   = np.concatenate([y_train, y_val, y_test])
+        df_clean = pd.DataFrame(X_all_z, columns=columns)
+        df_clean["target"] = y_all
+        df_clean.sample(frac=SAMPLE_CSV_FRAC, random_state=SEED).to_csv(
+            outdir / "cleaned_full_sample.csv", index=False
+        )
+
+    print("\n✅ Cleaning concluído. Artefatos salvos em:", outdir.resolve())
+
+
+# ------------------------------------------------------------------------------
+#                     SECTION 4 — MLP IMPLEMENTATION (NumPy)
+# ------------------------------------------------------------------------------
+
+# -------- utils de métricas e batches --------
+def one_hot(y, n_classes):
+    oh = np.zeros((y.shape[0], n_classes), dtype=np.float32)
+    oh[np.arange(y.shape[0]), y] = 1.0
+    return oh
+
+def accuracy(y_true, y_pred):
+    return float((y_true == y_pred).mean())
+
+def precision_recall_f1(y_true, y_pred, positive=1):
+    tp = np.sum((y_true == positive) & (y_pred == positive))
+    fp = np.sum((y_true != positive) & (y_pred == positive))
+    fn = np.sum((y_true == positive) & (y_pred != positive))
+    prec = tp / (tp + fp + 1e-12)
+    rec  = tp / (tp + fn + 1e-12)
+    f1   = 2*prec*rec/(prec+rec+1e-12)
+    return float(prec), float(rec), float(f1)
+
+def roc_auc_score_binary(y_true, scores):
+    pos = scores[y_true == 1]
+    neg = scores[y_true == 0]
+    if len(pos) == 0 or len(neg) == 0:
+        return float("nan")
+    concat = np.concatenate([pos, neg])
+    order = np.argsort(concat, kind="mergesort")
+    ranks = np.empty_like(order, dtype=np.float64)
+    ranks[order] = np.arange(1, len(concat) + 1)  # 1..N
+    r_pos = ranks[:len(pos)]
+    auc = (r_pos.sum() - len(pos)*(len(pos)+1)/2) / (len(pos)*len(neg) + 1e-12)
+    return float(auc)
+
+def iterate_minibatches(X, Y, batch, rng):
+    idx = rng.permutation(len(X))
+    for i in range(0, len(X), batch):
+        ib = idx[i:i+batch]
+        yield X[ib], Y[ib]
+
+
+# -------- classe MLP --------
+class MLP:
+    def __init__(self, d_in, layers=(64,), d_out=2, seed=42, l2=1e-4, momentum=0.9):
+        rng = np.random.default_rng(seed)
+        self.l2 = l2
+        self.class_weights = None  # definido externamente, se desejado
+        self.momentum = momentum
+        dims = [d_in] + list(layers) + [d_out]
+        self.params = {}
+        self.v = {}  # velocidades para momentum
+
+        # Inicialização He (ReLU): N(0, sqrt(2/fan_in))
+        for i in range(len(dims)-1):
+            fan_in = dims[i]
+            W = rng.normal(0, np.sqrt(2.0/fan_in), size=(dims[i], dims[i+1])).astype(np.float32)
+            b = np.zeros((1, dims[i+1]), dtype=np.float32)
+            self.params[f"W{i+1}"] = W
+            self.params[f"b{i+1}"] = b
+            self.v[f"W{i+1}"] = np.zeros_like(W)
+            self.v[f"b{i+1}"] = np.zeros_like(b)
+
+    def set_class_weights(self, cw):
+        self.class_weights = np.asarray(cw, dtype=np.float32)
+
+    def init_output_bias_with_prior(self, p_pos):
+        """Define b0=0 e b1=logit(p) para saída binária."""
+        p = float(np.clip(p_pos, 1e-6, 1-1e-6))
+        logit = np.log(p / (1.0 - p)).astype(np.float32)
+        L = len(self.params)//2
+        b = self.params[f"b{L}"].copy()
+        if b.shape[1] == 2:
+            b[:, 0] = 0.0
+            b[:, 1] = logit
+            self.params[f"b{L}"] = b
+
+    @staticmethod
+    def relu(x):
+        return np.maximum(0, x)
+
+    @staticmethod
+    def relu_grad(x):
+        return (x > 0).astype(np.float32)
+
+    @staticmethod
+    def softmax(z):
+        z = z - z.max(axis=1, keepdims=True)
+        e = np.exp(z, dtype=np.float32)
+        return e / (e.sum(axis=1, keepdims=True) + 1e-12)
+
+    def forward(self, X):
+        cache = {"A0": X}
+        A = X
+        L = len(self.params)//2
+        for i in range(1, L):
+            Z = A @ self.params[f"W{i}"] + self.params[f"b{i}"]
+            A = self.relu(Z)
+            cache[f"Z{i}"] = Z; cache[f"A{i}"] = A
+        ZL = A @ self.params[f"W{L}"] + self.params[f"b{L}"]
+        P = self.softmax(ZL)
+        cache[f"Z{L}"] = ZL; cache[f"A{L}"] = P
+        return P, cache
+
+    def loss(self, P, Y_onehot):
+        # Cross-Entropy ponderada por classe + L2
+        if self.class_weights is None:
+            cw = np.ones(Y_onehot.shape[1], dtype=np.float32)
+        else:
+            cw = self.class_weights
+        w_i = (Y_onehot * cw).sum(axis=1)  # peso por amostra
+        sum_w = float(w_i.sum() + 1e-12)
+        ce_per_sample = -np.sum(Y_onehot * np.log(P + 1e-12), axis=1)
+        ce = float(np.sum(w_i * ce_per_sample) / sum_w)
+
+        l2_term = 0.0
+        L = len(self.params)//2
+        for i in range(1, L+1):
+            l2_term += np.sum(self.params[f"W{i}"]**2)
+        return ce + self.l2 * 0.5 * l2_term
+
+    def backward(self, cache, Y_onehot):
+        grads = {}
+        if self.class_weights is None:
+            cw = np.ones(Y_onehot.shape[1], dtype=np.float32)
+        else:
+            cw = self.class_weights
+        w_i = (Y_onehot * cw).sum(axis=1)[:, None]  # (N,1)
+        sum_w = float(w_i.sum() + 1e-12)
+
+        L = len(self.params)//2
+        A_L = cache[f"A{L}"]  # probs
+
+        # dZ (softmax + CE) ponderado
+        dZ = ((A_L - Y_onehot) * w_i) / sum_w
+        A_prev = cache[f"A{L-1}"] if L > 1 else cache["A0"]
+        grads[f"W{L}"] = A_prev.T @ dZ + self.l2 * self.params[f"W{L}"]
+        grads[f"b{L}"] = np.sum(dZ, axis=0, keepdims=True)
+        dA_prev = dZ @ self.params[f"W{L}"].T
+
+        # camadas escondidas (ReLU)
+        for i in range(L-1, 0, -1):
+            Z = cache[f"Z{i}"]; A_prev = cache[f"A{i-1}"] if i > 1 else cache["A0"]
+            dZ = dA_prev * self.relu_grad(Z)
+            grads[f"W{i}"] = A_prev.T @ dZ + self.l2 * self.params[f"W{i}"]
+            grads[f"b{i}"] = np.sum(dZ, axis=0, keepdims=True)
+            dA_prev = dZ @ self.params[f"W{i}"].T
+        return grads
+
+    def step_sgd(self, grads, lr):
+        """SGD com momentum clássico."""
+        L = len(self.params)//2
+        for i in range(1, L+1):
+            self.v[f"W{i}"] = self.momentum * self.v[f"W{i}"] + grads[f"W{i}"]
+            self.v[f"b{i}"] = self.momentum * self.v[f"b{i}"] + grads[f"b{i}"]
+            self.params[f"W{i}"] -= lr * self.v[f"W{i}"]
+            self.params[f"b{i}"] -= lr * self.v[f"b{i}"]
+
+    def predict_proba(self, X):
+        P, _ = self.forward(X)
+        return P
+
+    def predict(self, X, threshold=None):
+        P, _ = self.forward(X)
+        if threshold is None:
+            return np.argmax(P, axis=1), P[:, 1]
+        else:
+            ppos = P[:, 1]
+            yhat = (ppos >= threshold).astype(int)
+            return yhat, ppos
+
+
+def train_mlp_numpy(outdir: Path):
+    print_header("🔧 [4] MLP Implementation (NumPy) — Treino/Val/Test")
+
+    # carregar dados processados
+    X_train = np.load(outdir / "X_train.npy")
+    y_train = np.load(outdir / "y_train.npy")
+    X_val   = np.load(outdir / "X_val.npy")
+    y_val   = np.load(outdir / "y_val.npy")
+    X_test  = np.load(outdir / "X_test.npy")
+    y_test  = np.load(outdir / "y_test.npy")
+
+    n_classes = int(np.max([y_train.max(), y_val.max(), y_test.max()]) + 1)
+    Y_train = one_hot(y_train, n_classes)
+    Y_val   = one_hot(y_val, n_classes)
+
+    # class weights "balanced": N / (K * n_c)
+    counts = np.bincount(y_train, minlength=n_classes).astype(np.float32)
+    cw_balanced = (len(y_train) / (n_classes * counts + 1e-12)).astype(np.float32)
+
+    mlp = MLP(
+        d_in=X_train.shape[1],
+        layers=MLP_LAYERS,
+        d_out=n_classes,
+        seed=SEED,
+        l2=MLP_L2,
+        momentum=MOMENTUM
+    )
+    mlp.set_class_weights(cw_balanced)
+
+    # inicializa viés de saída com a prevalência da classe positiva (para binário)
+    p_pos_train = float((y_train == 1).mean())
+    mlp.init_output_bias_with_prior(p_pos_train)
+
+    rng = np.random.default_rng(SEED)
+    lr = LR_INIT
+    best_vl = np.inf
+    wait = 0
+    hist = {"loss_tr": [], "loss_vl": []}
+    best_params = {k: v.copy() for k, v in mlp.params.items()}
+
+    for ep in range(1, EPOCHS+1):
+        # ===== treino (mini-batch SGD cobrindo TODO o dataset) =====
+        for xb, yb in iterate_minibatches(X_train, Y_train, BATCH_SIZE, rng):
+            P, cache = mlp.forward(xb)
+            loss = mlp.loss(P, yb)
+            grads = mlp.backward(cache, yb)
+            mlp.step_sgd(grads, lr)
+
+        # logging perdas em fim de época
+        P_tr = mlp.predict_proba(X_train); loss_tr = mlp.loss(P_tr, Y_train)
+        P_vl = mlp.predict_proba(X_val);   loss_vl = mlp.loss(P_vl, Y_val)
+        hist["loss_tr"].append(loss_tr); hist["loss_vl"].append(loss_vl)
+        print(f"Epoch {ep:02d} | loss_tr={loss_tr:.4f}  loss_vl={loss_vl:.4f}  lr={lr:.4f}")
+
+        # early stopping
+        if loss_vl < best_vl - 1e-4:
+            best_vl = loss_vl; wait = 0
+            best_params = {k: v.copy() for k, v in mlp.params.items()}
+        else:
+            wait += 1
+            if wait >= PATIENCE:
+                print("Early stopping acionado.")
+                break
+
+        # lr decay
+        if (ep % LR_DECAY_EVERY) == 0:
+            lr *= LR_DECAY
+
+    # restaurar melhores pesos
+    mlp.params = best_params
+
+    # ---- escolher threshold pelo melhor F1 na validação ----
+    _, ppos_val = mlp.predict(X_val, threshold=None)
+    best_t, best_f1 = 0.5, -1.0
+    for t in np.linspace(0.05, 0.95, 91):
+        yhat_t = (ppos_val >= t).astype(int)
+        _, _, f1_t = precision_recall_f1(y_val, yhat_t, positive=1)
+        if f1_t > best_f1:
+            best_f1 = f1_t
+            best_t = float(t)
+    print(f"\nThreshold escolhido na validação (melhor F1): t* = {best_t:.2f} (F1={best_f1:.4f})")
+    print(f"Proporção prevista como positiva em val @t*: {(ppos_val >= best_t).mean():.3f}")
+
+    # avaliação
+    def report(split, X, y, threshold):
+        y_pred, ppos = mlp.predict(X, threshold=threshold)
+        acc = accuracy(y, y_pred)
+        prec, rec, f1 = precision_recall_f1(y, y_pred, positive=1)
+        auc = roc_auc_score_binary(y, ppos)
+        print(f"[{split}] acc={acc:.4f}  prec={prec:.4f}  rec={rec:.4f}  f1={f1:.4f}  auc={auc:.4f}")
+        return {"acc": acc, "prec": prec, "rec": rec, "f1": f1, "auc": auc, "pos_rate": float((y_pred==1).mean())}
+
+    print()
+    mtr_tr = report("train", X_train, y_train, threshold=best_t)
+    mtr_vl = report("val",   X_val,   y_val,   threshold=best_t)
+    mtr_te = report("test",  X_test,  y_test,  threshold=best_t)
+
+    # salvar curvas
+    pd.DataFrame(hist).to_csv(outdir / "training_curves.csv", index=False)
+    # salvar métricas finais + threshold
+    final_metrics = {
+        "train": mtr_tr, "val": mtr_vl, "test": mtr_te,
+        "layers": list(MLP_LAYERS), "l2": MLP_L2, "lr_init": LR_INIT,
+        "batch_size": BATCH_SIZE, "epochs": EPOCHS, "patience": PATIENCE,
+        "class_weights": cw_balanced.tolist(),
+        "threshold_val_f1": best_t,
+        "momentum": MOMENTUM
+    }
+    with open(outdir / "final_metrics.json", "w") as f:
+        json.dump(final_metrics, f, indent=2)
+
+    print("\n✅ Treinamento concluído. Métricas salvas em:", outdir / "final_metrics.json")
+    print("Curvas de treino salvas em:", outdir / "training_curves.csv")
+
+
+# ------------------------------------------------------------------------------
+#                                      MAIN
+# ------------------------------------------------------------------------------
+
+def main():
+    script_dir = Path(__file__).parent
+    outdir = script_dir / OUTDIR_NAME
+
+    # Se ainda não existir X_train.npy, roda o cleaning
+    need_clean = not (outdir / "X_train.npy").exists()
+    if need_clean:
+        run_cleaning_and_save(script_dir)
+    else:
+        print_header("🔁 Artefatos de cleaning encontrados — pulando etapa de limpeza.")
+
+    # Treinar MLP (NumPy)
+    train_mlp_numpy(outdir)
+
+
+if __name__ == "__main__":
+    main()
+
+</pre></div> <div class=pyodide-editor-bar> <span class=pyodide-bar-item>Output</span><span id=exec-1--clear class="pyodide-bar-item pyodide-clickable"><span class=twemoji><svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span> </div> <pre><code id=exec-1--output class=pyodide-output></code></pre> </div> <script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-1--',
+        install=['pandas', ' numpy', ' matplotlib', ' scikit-learn', ' seaborn'],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=636,
+        maxLines=636,
+    );
+});
+</script> </p> <h2 id=5-curvas-de-erro-e-visualizacoes>5. Curvas de Erro e Visualizações</h2> <p>A curva de perda (<strong>loss</strong>) foi monitorada durante o treinamento do MLP, tanto no conjunto de <strong>treino</strong> quanto de <strong>validação</strong>, ao longo das épocas. Isso permite avaliar o comportamento do modelo em relação a <strong>convergência</strong>, <strong>overfitting</strong> e <strong>early stopping</strong>.</p> <p><img alt="Curva de perda do modelo" src=../assets/loss_curve.png></p> <p>Como mostrado no gráfico acima:</p> <ul> <li>O <strong>loss de treino</strong> decresce consistentemente até estabilizar.</li> <li>O <strong>loss de validação</strong> também decresce nas primeiras épocas, mas apresenta uma estabilização e flutuação posterior.</li> <li>O modelo utilizou <strong>early stopping com paciência de 8 épocas</strong>, interrompendo o treinamento antes de overfitting.</li> <li>A partir da época ~20, não houve mais ganhos relevantes na validação, indicando que o modelo já havia convergido.</li> </ul> <p>Esse padrão é típico em dados com certo desbalanceamento: o modelo consegue otimizar a perda, mas o ganho em recall e F1 tende a saturar cedo.</p> <h3 id=codigo-para-gerar-a-curva-de-perda>Código para gerar a curva de perda:</h3> <p> <script type=text/javascript src=https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js></script> <script type=text/javascript src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js></script> <script type=text/javascript src=https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js></script> <link title=light rel="alternate stylesheet" href=https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css disabled=disabled> <link title=dark rel="alternate stylesheet" href=https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css disabled=disabled> <div class=pyodide> <div class=pyodide-editor-bar> <span class=pyodide-bar-item>Editor (session: default)</span><span id=exec-2--run title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class=twemoji><svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span> </div> <div><pre id=exec-2--editor class=pyodide-editor>
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Garantir que o diretório de saída existe
+os.makedirs("assets", exist_ok=True)
+
+# Carregar o CSV com as curvas
+df = pd.read_csv("processed/training_curves.csv")
+
+# Plotar curvas de perda
+plt.figure(figsize=(8, 5))
+plt.plot(df["loss_tr"], label="Treino", linewidth=2)
+plt.plot(df["loss_vl"], label="Validação", linewidth=2)
+plt.xlabel("Época")
+plt.ylabel("Loss (Cross-Entropy)")
+plt.title("Curva de perda (loss) por época")
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+
+# Salvar imagem
+plt.savefig("assets/loss_curve.png")
+plt.show()
+</pre></div> <div class=pyodide-editor-bar> <span class=pyodide-bar-item>Output</span><span id=exec-2--clear class="pyodide-bar-item pyodide-clickable"><span class=twemoji><svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span> </div> <pre><code id=exec-2--output class=pyodide-output></code></pre> </div> <script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-2--',
+        install=['pandas', ' matplotlib', ' os'],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=24,
+        maxLines=24,
+    );
+});
+</script> </p> <h2 id=6-metricas-de-avaliacao-e-matriz-de-confusao>6. Métricas de Avaliação e Matriz de Confusão</h2> <p>Além das métricas quantitativas (acurácia, precisão, recall, F1-score e AUC), a <strong>matriz de confusão</strong> oferece uma visão clara dos tipos de erro que o modelo comete ao classificar clientes no conjunto de <strong>teste</strong>.</p> <p><img alt="Matriz de confusão do modelo" src=../assets/confusion_matrix.png></p> <h3 id=codigo-para-gerar-a-matriz-de-confusao>Código para gerar a matriz de confusão:</h3> <p> <script type=text/javascript src=https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js></script> <script type=text/javascript src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js></script> <script type=text/javascript src=https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js></script> <link title=light rel="alternate stylesheet" href=https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css disabled=disabled> <link title=dark rel="alternate stylesheet" href=https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css disabled=disabled> <div class=pyodide> <div class=pyodide-editor-bar> <span class=pyodide-bar-item>Editor (session: default)</span><span id=exec-3--run title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class=twemoji><svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span> </div> <div><pre id=exec-3--editor class=pyodide-editor>
+import numpy as np
+import json
+from pathlib import Path
+from projeto1 import MLP, one_hot  # importa sua classe e função
+
+# Paths
+outdir = Path("processed")
+X_test = np.load(outdir / "X_test.npy")
+y_test = np.load(outdir / "y_test.npy")
+X_train = np.load(outdir / "X_train.npy")
+y_train = np.load(outdir / "y_train.npy")
+X_val = np.load(outdir / "X_val.npy")
+y_val = np.load(outdir / "y_val.npy")
+
+# Hiperparâmetros (você pode pegar isso do final_metrics.json também)
+with open(outdir / "final_metrics.json") as f:
+    final_metrics = json.load(f)
+
+layers = tuple(final_metrics["layers"])
+l2 = final_metrics["l2"]
+momentum = final_metrics["momentum"]
+threshold = final_metrics["threshold_val_f1"]
+batch_size = final_metrics["batch_size"]
+epochs = final_metrics["epochs"]
+lr_init = final_metrics["lr_init"]
+patience = final_metrics["patience"]
+class_weights = np.array(final_metrics["class_weights"], dtype=np.float32)
+
+# One-hot
+Y_train = one_hot(y_train, 2)
+Y_val = one_hot(y_val, 2)
+
+# Treinar novamente o MLP com os mesmos dados (replicando treino para recuperar pesos)
+mlp = MLP(
+    d_in=X_train.shape[1],
+    layers=layers,
+    d_out=2,
+    seed=42,
+    l2=l2,
+    momentum=momentum
+)
+mlp.set_class_weights(class_weights)
+mlp.init_output_bias_with_prior(float((y_train == 1).mean()))
+
+# Repetir treino
+rng = np.random.default_rng(42)
+best_params = {k: v.copy() for k, v in mlp.params.items()}
+best_vl = float("inf")
+wait = 0
+lr = lr_init
+
+def iterate_minibatches(X, Y, batch, rng):
+    idx = rng.permutation(len(X))
+    for i in range(0, len(X), batch):
+        ib = idx[i:i+batch]
+        yield X[ib], Y[ib]
+
+for ep in range(1, epochs+1):
+    for xb, yb in iterate_minibatches(X_train, Y_train, batch_size, rng):
+        P, cache = mlp.forward(xb)
+        loss = mlp.loss(P, yb)
+        grads = mlp.backward(cache, yb)
+        mlp.step_sgd(grads, lr)
+    # Validação
+    P_vl, _ = mlp.forward(X_val)
+    loss_vl = mlp.loss(P_vl, Y_val)
+    if loss_vl < best_vl - 1e-4:
+        best_vl = loss_vl
+        wait = 0
+        best_params = {k: v.copy() for k, v in mlp.params.items()}
+    else:
+        wait += 1
+        if wait >= patience:
+            break
+    if ep % 5 == 0:
+        lr *= 0.9
+
+# Restaurar melhores pesos
+mlp.params = best_params
+
+# Predição no teste com threshold ótimo
+yhat_test, _ = mlp.predict(X_test, threshold=threshold)
+np.save(outdir / "final_yhat_test.npy", yhat_test)
+print("✅ Predições salvas em processed/final_yhat_test.npy")
+
+import numpy as np
+import seaborn as sns
+from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
+
+# Carregar dados
+y_test = np.load("processed/y_test.npy")
+y_pred = np.load("processed/final_yhat_test.npy")  # ou gere a predição no seu script final
+
+# Confusion matrix
+cm = confusion_matrix(y_test, y_pred)
+labels = ["Não Inadimplente", "Inadimplente"]
+
+# Plot
+plt.figure(figsize=(6, 5))
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=labels, yticklabels=labels)
+plt.xlabel("Predito")
+plt.ylabel("Real")
+plt.title("Matriz de Confusão — Conjunto de Teste")
+plt.tight_layout()
+plt.savefig("assets/confusion_matrix.png")  # ajuste o caminho conforme o GitHub Pages
+plt.show()
+</pre></div> <div class=pyodide-editor-bar> <span class=pyodide-bar-item>Output</span><span id=exec-3--clear class="pyodide-bar-item pyodide-clickable"><span class=twemoji><svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span> </div> <pre><code id=exec-3--output class=pyodide-output></code></pre> </div> <script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-3--',
+        install=['numpy', ' matplotlib', ' seaborn', ' sklearn'],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=107,
+        maxLines=107,
+    );
+});
+</script> </p> <h3 id=interpretacao>Interpretação:</h3> <ul> <li><strong>3596 clientes</strong> foram corretamente identificados como <strong>não inadimplentes</strong> (<em>verdadeiros negativos</em>).</li> <li><strong>855 clientes inadimplentes</strong> foram corretamente identificados (<em>verdadeiros positivos</em>).</li> <li><strong>472 inadimplentes</strong> foram classificados como não inadimplentes (<em>falsos negativos</em>), o que representa um risco de crédito não detectado.</li> <li><strong>1077 não inadimplentes</strong> foram classificados incorretamente como inadimplentes (<em>falsos positivos</em>), o que pode levar à recusa de crédito injusta.</li> </ul> <h3 id=conclusao>Conclusão:</h3> <p>O modelo apresenta um bom desempenho em <strong>recuperar inadimplentes</strong>, com <strong>855 acertos</strong>, mas ainda comete <strong>472 erros críticos (falsos negativos)</strong> — o que pode impactar negativamente instituições financeiras que dependem dessa previsão para concessão de crédito.</p> <p>A calibragem via <strong>threshold ótimo na validação</strong> priorizou o <strong>F1-score e recall da classe minoritária</strong>, aceitando sacrificar parte da precisão para detectar mais inadimplentes. Essa escolha foi intencional, considerando que o custo de um falso negativo (inadimplente não detectado) é normalmente maior que o de um falso positivo.</p> <p><strong>Nota:</strong> Os dados são desbalanceados (~22% inadimplentes), e por isso o modelo foi treinado com <strong>pesos de classe ajustados</strong>, <strong>regularização L2</strong>, e <strong>early stopping</strong>, além da <strong>normalização por z-score</strong>.</p> <h2 id=uso-de-ia>Uso de I.A.</h2> <p>Utilizamos o auxílio do chatGPT para: - Fazer README do projeto. - Gerar funções auxiliares em python. - Revisar e melhorar trechos de código.</p> </article> </div> <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script> </div> <button type=button class="md-top md-icon" data-md-component=top hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg> Back to top </button> </main> <footer class=md-footer> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-copyright> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "../..", "features": ["content.code.copy", "navigation.top", "navigation.tracking", "navigation.expand"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script> <script src=../../assets/javascripts/bundle.f55a23d4.min.js></script> <script src=../../assets/_markdown_exec_pyodide.js></script> <script src=https://unpkg.com/mermaid@10/dist/mermaid.min.js></script> <script src=https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js></script> </body> </html>
