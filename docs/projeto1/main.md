@@ -1,4 +1,4 @@
-# Projeto 1 - Classification
+# Projeto 1 - Classification - Tomas Miele e Yuri Tabacof
 
 ## 1. Dataset Selection
 
