@@ -41,10 +41,16 @@ Artefatos gerados automaticamente (substitua os placeholders nas próximas seç�
 
 ## 4. Avaliação Qualitativa
 
-Após executar o treinamento em ambiente local, substitua as imagens abaixo pelos arquivos gerados:
+Reconstruções, amostras geradas e visualização do espaço latente (para `latent_dim=2`):
 
 ![Reconstruções](./assets/reconstructions.png)
+
+Amostras geradas e espaço latente:
+
 ![Amostras Geradas](./assets/samples.png)
+
+Espaço Latente:
+
 ![Latent Space](./assets/latent_space.png)
 
 Pontos de atenção durante a análise:
