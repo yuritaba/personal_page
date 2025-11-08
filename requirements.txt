@@ -17,3 +17,6 @@ yfinance
 mkdocs>=1.5
 pymdown-extensions>=10
 markdown-exec
+autograd
+torch
+torchvision

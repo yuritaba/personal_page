@@ -1,0 +1,8 @@
+{
+  "dataset": "mnist",
+  "latent_dim": 2,
+  "beta": 1.0,
+  "epochs": 30,
+  "best_val_loss": 141.2769842936198,
+  "test_loss": 141.38560456542967
+}
